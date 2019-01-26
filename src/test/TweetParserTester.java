@@ -1,6 +1,9 @@
 package test;
 
 import java.util.regex.Pattern;
+
+import com.sun.tools.javac.util.Assert;
+
 import java.util.regex.Matcher;
 
 import jdk.internal.jline.internal.TestAccessible;
@@ -25,8 +28,13 @@ ability to iterate tags, mentions, and URLs.
 
 public class TweetParserTester {
 
-    @test
-    public void 
+    @Test
+    public void testTweetParser() {
+        TweetParser test = new TweetParser();
+        String output = test.TweetParser("@Sarah love cars.");
+        Assert("@Sarah", output);
+
+    }
 
 
     

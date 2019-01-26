@@ -7,15 +7,12 @@ import java.util.regex.Matcher;
 
 public class TweetParser {
 
-    // URL Pattern
     String urlRegex = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
     Pattern pattern = Pattern.compile(urlRegex);
     
-    // Mention Pattern
     String mentionRegex = "/^(?!.*\\bRT\\b)(?:.+\\s)?@\\w+/i";
     Pattern pattern1  = Pattern.compile(mentionRegex);
 
-    // Hashtag Pattern
     String hashtagRegex = "\\B(\\#[a-zA-Z]+\\b)(?!;)";
     Pattern pattern2 = Pattern.compile((hashtagRegex));
 
