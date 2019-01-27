@@ -32,3 +32,5 @@ public class TweetParser {
         } else if(urlRegex.contains("http")) {
             System.out.println(pattern2);
         }
+    }
+}
