@@ -15,20 +15,23 @@ public class TweetParser {
     Scanner scanner = new Scanner(System.in);
 
     String urlRegex = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-
     Pattern pattern = Pattern.compile(urlRegex);
 
     String mentionRegex = "/\\s([@][\\w_-]+)/g";
-
     Pattern pattern1  = Pattern.compile(mentionRegex);
 
-    String hashtagRegex = "/\\s([#][\\w_-]+)/g ";
-
+    String hashtagRegex = "/\\s([#][\\w_-]+)/g";
     Pattern pattern2 = Pattern.compile((hashtagRegex));
 
+    /*
     Matcher matcher = pattern.matcher("@Sarah loves cars.");
     Matcher matcher1 = pattern1.matcher("#Cars are awesome");
     Matcher matcher2 = pattern2.matcher("Visit https://www.cars.com for more cars") ;
+    */
+
+    Matcher matcher = pattern.matcher("Visit https://www.cars.com for more cars");
+    Matcher matcher1 = pattern1.matcher("@Sarah loves cars.");
+    Matcher matcher2 = pattern2.matcher("#Cars are awesome") ;
 
     private String tweet;
     private String Info;
