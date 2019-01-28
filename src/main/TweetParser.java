@@ -1,54 +1,55 @@
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.lang.String;
-import java.util.Scanner;
-import java.util.HashMap;
-import java.util.Map;
 
 public class TweetParser {
+private String[] mentions;
+private String[] topics;
+private String[] references;
 
-    Scanner scanner = new Scanner(System.in);
+private String tweet;
 
-    String urlRegex = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
-    Pattern pattern = Pattern.compile(urlRegex);
+public TweetParser(String tweet) {
+this.tweet = tweet;
 
-    String mentionRegex = "/\\s([@][\\w_-]+)/g";
-    Pattern pattern1  = Pattern.compile(mentionRegex);
+String mentionRegex = "/\\s([@][\\w_-]+)/g";
+String hashtagRegex = "/\\s([#][\\w_-]+)/g ";
+String urlRegex = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
-    String hashtagRegex = "/\\s([#][\\w_-]+)/g";
-    Pattern pattern2 = Pattern.compile((hashtagRegex));
+mentions = getMatches(mentionRegex, tweet);
+topics = getMatches(hashtagRegex, tweet);
+references = getMatches(urlRegex, tweet);
+}
 
-    /*
-    Matcher matcher = pattern.matcher("@Sarah loves cars.");
-    Matcher matcher1 = pattern1.matcher("#Cars are awesome");
-    Matcher matcher2 = pattern2.matcher("Visit https://www.cars.com for more cars") ;
-    */
+private String[] getMatches(String regex, String input) {
+List<String> list = new ArrayList<String>();
+Matcher m = Pattern.compile(regex).matcher(input);
+while (m.find()) {
+list.add(m.group());
+}
+String[] array = new String[list.size()];
+list.toArray(array); // fill the array
+return array;
+}
 
-    Matcher matcher = pattern.matcher("Visit https://www.cars.com for more cars");
-    Matcher matcher1 = pattern1.matcher("@Sarah loves cars.");
-    Matcher matcher2 = pattern2.matcher("#Cars are awesome") ;
+public String getTweet() {
+return tweet;
+}
 
-    private String tweet;
-    private String Info;
+public String[] getMentions() {
+return mentions;
+}
 
-    public TweetParser(String tweet) {
+public String[] getReferences() {
+return references;
+}
 
-        String mentions[] = pattern1.split(tweet);
-        String url[] = pattern.split(tweet);
-        String hashtag[] = pattern.split(tweet);
+public String[] getTopics() {
+return topics;
+}
 
 
-        if (mentionRegex.matches("@")) {
-            System.out.println(tweet);
-        } else if (hashtagRegex.matches("#Cars")) {
-            System.out.println(tweet);
-        } else if (urlRegex.matches("http")) {
-            System.out.println(tweet);
-        }
-    }
 }
