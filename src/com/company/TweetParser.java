@@ -88,45 +88,6 @@ public class TweetParser {
     }
 
 
-//if (mentionRegex.matches("@")) {
-            //System.out.println(tweet);
-        //} else if (hashtagRegex.matches("#Cars")) {
-            //System.out.println(tweet);
-        //} else if (urlRegex.matches("http")) {
-           // System.out.println(tweet);
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //create a method that get URLS from tweet
-        //get mentions from tweets
-        //get Hashtags from tweets
-
-        //then store the information in list (list of mentions)
-        //mention list
-        //URL list
-        //hashtag list
-        //put every mention in the list
-
 
 
 
