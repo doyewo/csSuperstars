@@ -48,7 +48,9 @@ public class TweetParserTester implements TweetParser{
 
 
 /*
-public class TweetParserTester {
+
+// borrowed from Java documentation
+public class RegexTestHarness {
 
     public static void main(String[] args){
         Console console = System.console();
