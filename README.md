@@ -10,6 +10,9 @@
 - good use of classes and objects and library classes (instead of reinventing your own), especially when it comes to - - core data structures (lists, tables/dictionaries, string handling, etc.)
 - citation of any ideas that inspired you, including other users on GitHub (or hosting sites in general), StackOverflow, etc.
 
+# About
+
+
 # Classes
 - Main
 - TweetParser
