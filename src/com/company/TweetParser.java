@@ -50,8 +50,8 @@ public class TweetParser {
         return mentions.length;
     }
 
-    public boolean hasMentions(String User) {
-        return
+    public boolean isMention() {
+        return Arrays.stream(mentions).anyMatch("@"::equals);
     }
 
 
@@ -65,6 +65,10 @@ public class TweetParser {
         return references.length;
     }
 
+    public boolean isReferences() {
+        return Arrays.stream(references).anyMatch("http"::equals);
+    }
+
     public String[] getTopics() {
         return topics;
     }
@@ -73,14 +77,15 @@ public class TweetParser {
         return topics.length;
     }
 
-    public boolean hasTopics() {
-        return
+    public boolean isTopics() {
+        return Arrays.stream(topics).anyMatch("#"::equals);
     }
 
 
 
 
-}
+
+    }
 
 
 //if (mentionRegex.matches("@")) {
