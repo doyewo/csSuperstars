@@ -12,6 +12,7 @@ private String[] references;
 
 private String tweet;
 
+// TweetParser method takes String input (a tweet) and retrieves the mention, hashtag, and URL based on regex
 public TweetParser(String tweet) {
 this.tweet = tweet;
 
@@ -24,6 +25,7 @@ topics = getMatches(hashtagRegex, tweet);
 references = getMatches(urlRegex, tweet);
 }
 
+// getMatches method takes regex and tweet and adds it to list, returns the array's contents 
 private String[] getMatches(String regex, String input) {
 List<String> list = new ArrayList<String>();
 Matcher m = Pattern.compile(regex).matcher(input);
@@ -35,21 +37,24 @@ list.toArray(array); // fill the array
 return array;
 }
 
+//return tweet
 public String getTweet() {
 return tweet;
 }
 
+//returns String array containing all mentions
 public String[] getMentions() {
 return mentions;
 }
 
+//returns String array containing allreferences or "URLs"
 public String[] getReferences() {
 return references;
 }
 
+//returns String array containing all hashtags
 public String[] getTopics() {
 return topics;
 }
-
 
 }

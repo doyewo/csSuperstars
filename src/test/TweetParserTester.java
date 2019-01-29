@@ -1,7 +1,53 @@
 import java.io.Console;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import com.sun.tools.javac.util.Assert;
 
+import jdk.internal.jline.internal.TestAccessible;
+
+public class TweetParserTester implements TweetParser{
+
+    @test
+    public void TweetParserTest() {
+
+    }    
+
+    @test
+    public void getMatchesTest() {
+        
+    }
+
+    @test
+    public void getTweetTest() {
+        final String expected = "@Sarah hate #cats. Visit https://thecatsite.com now to buy cats";
+        final String actual = tweet.getTweet();
+        Assert.assertEquals(actual, expected);
+    }
+
+    @test
+    public void getMentionsTest() {
+        final String expected = "@Sarah";
+        final String actual = tweet.getMentions();
+        Assert.assertEquals(actual, expected);
+    }
+
+    @test
+    public void getReferencesTest() {
+        final String expected = "https://thecatsite.com";
+        final String actual = tweet.getReferences();
+        Assert.assertEquals(actual, expected);
+    }
+
+    @test 
+    public void getTopicsTest() {
+        final String expected = "#cats";
+        final String actual = tweet.getTopicsTest();
+        Assert.assertEquals(actual, expected);
+    }
+}
+
+
+/*
 public class TweetParserTester {
 
     public static void main(String[] args){
@@ -33,4 +79,4 @@ public class TweetParserTester {
             }
         }
     }
-}
+}*/
